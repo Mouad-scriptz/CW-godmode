@@ -1,13 +1,23 @@
 --made by Mouad#4819
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NukinGang/CW-bypass/main/main.lua"))()
-local events = game:GetService("ReplicatedStorage").Communication.Events
-local functions = game:GetService("ReplicatedStorage").Communication.Functions
-local player = game.Players.LocalPlayer
+	local events = game:GetService("ReplicatedStorage").Communication.Events
+	local functions = game:GetService("ReplicatedStorage").Communication.Functions
+	local player = game.Players.LocalPlayer
 local function spwn()
 	for i=1, 2 do
 		events.StartFastRespawn:FireServer()
 		functions.CompleteFastRespawn:FireServer()
 		wait(.1) 
+	end
+end
+local function cad()
+	local lp = game:GetService("Players").LocalPlayer
+	local ad = game.Workspace.Airdrops
+	for _,v in pairs(ad:GetChildren()) do
+		local ad = v
+		lp.Character.HumanoidRootPart.CFrame = ad:WaitForChild("Crate").Base.CFrame
+		wait(.2)
+		fireproximityprompt(ad:WaitForChild("Crate").Hitbox.ProximityPrompt)
 	end
 end
 local function bomb()
@@ -67,3 +77,5 @@ repeat
 	tools = #bp:GetChildren()
 until
 	tools == 0 and game:GetService("Players").LocalPlayer.PlayerGui.RoactUI:FindFirstChild("MainMenu")
+wait(1)
+cad()
