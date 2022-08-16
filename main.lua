@@ -1,8 +1,8 @@
 --made by Mouad#4819
 loadstring(game:HttpGet("https://raw.githubusercontent.com/NukinGang/CW-bypass/main/main.lua"))()
-	local events = game:GetService("ReplicatedStorage").Communication.Events
-	local functions = game:GetService("ReplicatedStorage").Communication.Functions
-	local player = game.Players.LocalPlayer
+local events = game:GetService("ReplicatedStorage").Communication.Events
+local functions = game:GetService("ReplicatedStorage").Communication.Functions
+local player = game.Players.LocalPlayer
 local function spwn()
 	for i=1, 2 do
 		events.StartFastRespawn:FireServer()
