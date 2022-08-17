@@ -10,16 +10,6 @@ local function spwn()
 		wait(.1) 
 	end
 end
-local function cad()
-	local lp = game:GetService("Players").LocalPlayer
-	local ad = game.Workspace.Airdrops
-	for _,v in pairs(ad:GetChildren()) do
-		local ad = v
-		lp.Character.HumanoidRootPart.CFrame = ad:WaitForChild("Crate").Base.CFrame
-		wait(.2)
-		fireproximityprompt(ad:WaitForChild("Crate").Hitbox.ProximityPrompt)
-	end
-end
 local function bomb()
 	events.TakeFallDamage:FireServer(150)
 	spwn()
@@ -43,7 +33,6 @@ local function bomb()
 		[2] = Vector3.new(0, -10000, 0),
 		[3] = Vector3.new(0, 0, 0)
 	}
-
 	game:GetService("ReplicatedStorage").Communication.Events.ReplicateThrowable:FireServer(unpack(args)) 
 	wait(0.1)
 	local args1 = {
@@ -70,12 +59,6 @@ local function bomb()
 	events.TakeFallDamage:FireServer(150)
 	spwn()
 end
-repeat
-	wait(1)
+while wait(1) do
 	bomb()
-	bp = game:GetService("Players").LocalPlayer:FindFirstChild("Backpack")
-	tools = #bp:GetChildren()
-until
-	tools == 0 and game:GetService("Players").LocalPlayer.PlayerGui.RoactUI:FindFirstChild("MainMenu")
-wait(1)
-cad()
+end
